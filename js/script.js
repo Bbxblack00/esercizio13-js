@@ -59,14 +59,21 @@
 
     $('.box').each(function() {
 
-      var rnd = getRandomValue(1, 100);
       // $(this).find('span').text(rnd);
 
-      $(this).html('<span class="text">' + rnd + '</span>')
+      $(this).click(function() {
+
+        var rnd = getRandomValue(1, 100);
+        $(this).html('<span class="text">' + rnd + '</span>');
+
+      })
 
     });
 
   }
+
+
+  // creare classe invisibile che al click si rende visibile, rimuovendola
 
   function boxGenerator(boxCount) {
 
@@ -79,6 +86,10 @@
     }
 
   }
+
+
+
+
 
 
 
