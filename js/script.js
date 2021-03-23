@@ -71,7 +71,14 @@
           clickedBtn.toggleClass('rd-sp');
         }
         clickedSpan.toggle();
-      });
+      }, function() {
+
+       var clickedBtn = $(this);
+       var clickedSpan = clickedBtn.find('span');
+       var htmlSpan = clickedSpan.html();
+
+       $(this).find('span').text().remove();
+     });
 
   }
 
