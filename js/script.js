@@ -1,7 +1,7 @@
 
-function test() {
-
-  var btns = $('.btn');
+// function test() {
+//
+//   var btns = $('.btn');
 
   // btns.each(function() {
   //   console.log($(this));
@@ -26,23 +26,55 @@ function test() {
   // });
 
 
-  $('.btn').each(function() {
+//   $('.btn').each(function() {
+//
+//     var myBtn = $(this)
+//
+//     // myBtn.pretend('prova');
+//     // myBtn.append('prova');
+//     myBtn.html(myBtn.html() = 'prova');
+//
+//   });
+//
+//
+//
+// }
 
-    var myBtn = $(this)
-
-    // myBtn.pretend('prova');
-    myBtn.html(myBtn.html() = 'prova');
-
-  });
 
 
 
-}
+  function getRandomValue(min, max) {
+
+    var localMin = min;
+    var localMax = max - min + 1;
+
+    return Math.floor(Math.random() * localMax) + localMin;
+
+  }
+
+
+
+
+  function addRandomValue() {
+
+    $('.box').each(function() {
+
+      var rnd = getRandomValue(1, 100);
+      $(this).find('span').text(rnd);
+
+
+    });
+
+  }
+
+
+
 
 function init() {
 
-  test();
+  addRandomValue();
 
 }
 
+// JQUERY
 $(document).ready(init);
