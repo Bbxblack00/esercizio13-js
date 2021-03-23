@@ -60,10 +60,23 @@
     $('.box').each(function() {
 
       var rnd = getRandomValue(1, 100);
-      $(this).find('span').text(rnd);
+      // $(this).find('span').text(rnd);
 
+      $(this).html('<span class="text">' + rnd + '</span>')
 
     });
+
+  }
+
+  function boxGenerator(boxCount) {
+
+    var boxes = $('.boxes');
+
+    for (var i = 0; i < boxCount; i++) {
+
+      boxes.append('<div class="box"></div>')
+
+    }
 
   }
 
@@ -71,6 +84,8 @@
 
 
 function init() {
+
+  boxGenerator(10);
 
   addRandomValue();
 
