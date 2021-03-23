@@ -60,11 +60,16 @@
  }
  .box span {
      margin: auto;
-     /* display: none; */
  }
- /* .box span.active{
-   display: flex;
- } */
+ .box span.invisibile{
+   display: none;
+ }
+.rd-sp{
+  background-color: red;
+}
+.gr-sp{
+  background-color: green;
+}
  .bg-red {
      color: red;
  }

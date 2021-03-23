@@ -12,7 +12,7 @@
   // for (var i = 0; i < btns.length; i++) {
   //
   //   var btn = $(btns[i]);
-  //   btn.addClass('bg-red')
+  //   btn.addClass('bg-red');
   //
   // }
 
@@ -57,18 +57,21 @@
 
   function addRandomValue() {
 
-    $('.box').each(function() {
-
       // $(this).find('span').text(rnd);
 
-      $(this).click(function() {
+      $('.box').click(function() {
 
-        var rnd = getRandomValue(1, 100);
-        $(this).html('<span class="text">' + rnd + '</span>');
+        var clickedBtn = $(this);
+        var clickedSpan = clickedBtn.find('span');
+        var htmlSpan = clickedSpan.text();
 
-      })
-
-    });
+        if (htmlSpan % 2 == 0) {
+          clickedBtn.toggleClass('gr-sp');
+        }else {
+          clickedBtn.toggleClass('rd-sp');
+        }
+        clickedSpan.toggle();
+      });
 
   }
 
@@ -81,7 +84,8 @@
 
     for (var i = 0; i < boxCount; i++) {
 
-      boxes.append('<div class="box"></div>')
+      var rnd = getRandomValue(1, 100);
+      boxes.append('<div class="box"><span class="text invisibile">' + rnd + '</span></div>');
 
     }
 
@@ -89,14 +93,18 @@
 
 
 
+// Chiedere all'utente il numero di quadratini da generare dinamicamente
+// e far comparire/scomparire il valore casuale (fisso) al click sulla singola box
 
-
-
+// Nel momento in cui la box mostra il valore contenuto colorare il background di verde per valori
+// pari e rosso per valori dispari, nascondendo poi il colore alla scomparsa del valore
 
 
 function init() {
 
-  boxGenerator(10);
+  var numBox = parseInt(prompt('inserisci il numero di blocchi che vuoi visualizzare'));
+
+  boxGenerator(numBox);
 
   addRandomValue();
 
